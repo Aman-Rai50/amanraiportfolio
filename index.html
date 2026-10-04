@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aman Rai | Portfolio</title>
+    <meta name="description" content="Aman Rai — MCA student at SRMU Lucknow and BCA graduate exploring web development, AI, and design.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .text-gradient { background: linear-gradient(to right, #4f46e5, #9333ea, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .bg-photo { background-image: url('/.netlify/images?url=/images/background.jpg&w=1920&q=75'); background-size: cover; background-position: center; }
+        @media (min-width: 1921px) { .bg-photo { background-image: url('/.netlify/images?url=/images/background.jpg&w=3840&q=75'); } }
+        .bg-mesh { background-color: #0f172a; background-image: radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.15) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.15) 0px, transparent 50%); }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200 antialiased overflow-x-hidden">
+
+    <!-- BACKGROUND IMAGE -->
+    <div aria-hidden="true" class="fixed inset-0 -z-10 pointer-events-none">
+        <div class="absolute inset-0 bg-photo"></div>
+        <div class="absolute inset-0 bg-mesh opacity-80"></div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav x-data="{ open: false }" class="fixed w-full z-50 transition-all duration-300 glass py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-2xl font-extrabold tracking-tighter text-white">AMAN<span class="text-indigo-500"> RAI.</span></a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-10 font-medium text-sm uppercase tracking-widest items-center">
+                <a href="#about" class="hover:text-indigo-400 transition">About</a>
+                <a href="#skills" class="hover:text-indigo-400 transition">Technologies</a>
+                <a href="#education" class="hover:text-indigo-400 transition">Education</a>
+                <a href="#contact" class="px-5 py-2 bg-indigo-600 rounded-full hover:bg-indigo-500 transition shadow-lg shadow-indigo-500/20 text-white">Let's Talk</a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button @click="open = !open" class="md:hidden text-white" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div x-show="open" @click="open = false" class="md:hidden glass mt-4 p-6 space-y-4 text-center">
+            <a href="#about" class="block">About</a>
+            <a href="#skills" class="block">Technologies</a>
+            <a href="#education" class="block">Education</a>
+            <a href="#contact" class="block text-indigo-400">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="about" class="min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <span class="inline-block py-1 px-3 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold mb-6 border border-indigo-500/20">OPEN TO INTERNSHIPS &amp; FRESHER ROLES</span>
+                <p class="text-2xl md:text-3xl font-semibold text-slate-300 mb-4">Hi, I'm <span class="text-white font-extrabold">Aman Rai</span> 👋</p>
+                <h1 class="text-6xl md:text-8xl font-extrabold text-white leading-tight mb-6">
+                    Crafting <span class="text-gradient">Digital</span> Experiences.
+                </h1>
+                <p class="text-xl text-slate-400 mb-10 leading-relaxed max-w-lg">
+                    I’m Aman Rai, an MCA student at SRMU Lucknow who loves turning ideas into interactive digital experiences. I believe code isn’t just logic — it’s creativity in motion. Currently exploring web development, AI, and design to build projects that connect people and technology.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#skills" class="px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-indigo-500 hover:text-white transition-all duration-300">My Skills</a>
+                    <a href="#contact" class="px-8 py-4 border border-slate-700 rounded-xl font-bold hover:bg-slate-800 transition">Contact Me</a>
+                </div>
+            </div>
+            <div class="relative" data-aos="zoom-in">
+                <div class="absolute -top-20 -left-20 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl"></div>
+                <div class="glass p-4 rounded-full transition-transform duration-500">
+                    <img src="images/profile-circle.png" alt="Aman Rai" class="w-full aspect-square object-cover rounded-full shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-4 text-center">Technologies <span class="text-gradient">I Work With</span></h2>
+            <p class="text-slate-400 text-center mb-16 max-w-2xl mx-auto">The languages, frameworks, and tools I use to learn, build, and experiment.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass p-8 rounded-3xl" data-aos="fade-up">
+                    <div class="w-12 h-12 bg-indigo-500/20 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Frontend Development</h3>
+                    <p class="text-slate-400 text-sm mb-6">Building responsive, interactive user interfaces.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">HTML5</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">CSS3</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">JavaScript</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">React</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Tailwind CSS</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Bootstrap</span>
+                    </div>
+                </div>
+                <div class="glass p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Backend &amp; Databases</h3>
+                    <p class="text-slate-400 text-sm mb-6">Server-side logic and storing data reliably.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Node.js</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Express.js</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">PHP</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">MySQL</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">MongoDB</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">REST APIs</span>
+                    </div>
+                </div>
+                <div class="glass p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Programming Languages</h3>
+                    <p class="text-slate-400 text-sm mb-6">Core languages from my BCA and MCA coursework.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">C</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">C++</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Java</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Python</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">SQL</span>
+                    </div>
+                </div>
+                <div class="glass p-8 rounded-3xl" data-aos="fade-up">
+                    <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AI &amp; Data</h3>
+                    <p class="text-slate-400 text-sm mb-6">Exploring how AI can make products smarter.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Python</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">NumPy</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Pandas</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Machine Learning Basics</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Prompt Engineering</span>
+                    </div>
+                </div>
+                <div class="glass p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">UI/UX Design</h3>
+                    <p class="text-slate-400 text-sm mb-6">Designing clean layouts before writing code.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Figma</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Canva</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Wireframing</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Responsive Design</span>
+                    </div>
+                </div>
+                <div class="glass p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-sky-500/20 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Tools &amp; Platforms</h3>
+                    <p class="text-slate-400 text-sm mb-6">The everyday toolkit for building and shipping.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Git</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">GitHub</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">VS Code</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Netlify</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">npm</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION TIMELINE -->
+    <section id="education" class="py-32">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center">Education <span class="text-indigo-500">Timeline</span></h2>
+            <div class="space-y-12 relative before:absolute before:left-0 before:h-full before:w-px before:bg-slate-800">
+                <div class="pl-10 relative" data-aos="fade-left">
+                    <div class="absolute left-[-5px] top-1 w-2.5 h-2.5 rounded-full bg-indigo-500 shadow-[0_0_10px_#6366f1]"></div>
+                    <span class="text-indigo-400 font-bold text-sm">PURSUING</span>
+                    <h3 class="text-xl font-bold text-white mt-1">Master of Computer Applications (MCA)</h3>
+                    <p class="text-slate-300 mt-1">Shri Ramswaroop Memorial University (SRMU), Lucknow</p>
+                    <p class="text-slate-400 mt-2">Deepening my knowledge of software development, web technologies, and AI while building hands-on projects.</p>
+                </div>
+                <div class="pl-10 relative" data-aos="fade-left">
+                    <div class="absolute left-[-5px] top-1 w-2.5 h-2.5 rounded-full bg-slate-700"></div>
+                    <span class="text-slate-500 font-bold text-sm">COMPLETED</span>
+                    <h3 class="text-xl font-bold text-white mt-1">Bachelor of Computer Applications (BCA)</h3>
+                    <p class="text-slate-400 mt-2">Built a strong foundation in programming, data structures, databases, and web development.</p>
+                </div>
+                <div class="pl-10 relative" data-aos="fade-left">
+                    <div class="absolute left-[-5px] top-1 w-2.5 h-2.5 rounded-full bg-slate-700"></div>
+                    <span class="text-slate-500 font-bold text-sm">NEXT STEP</span>
+                    <h3 class="text-xl font-bold text-white mt-1">Looking for my first opportunity</h3>
+                    <p class="text-slate-400 mt-2">Open to internships and fresher roles in web development, AI, and UI/UX where I can learn and contribute.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-32">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="glass rounded-[3rem] p-12 md:p-20 relative overflow-hidden">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-indigo-600/20 rounded-full blur-3xl"></div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-5xl font-extrabold text-white mb-6">Let's build something <span class="text-gradient">epic.</span></h2>
+                        <p class="text-slate-400 text-lg mb-8">I’m a fresher open to internships, entry-level roles, and collaborations. Feel free to reach out!</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 bg-indigo-500/10 rounded-full flex items-center justify-center text-indigo-400">@</div>
+                                <a href="mailto:amanraibhmihar336@gmail.com" class="text-white hover:text-indigo-400 transition break-all">amanraibhmihar336@gmail.com</a>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 bg-indigo-500/10 rounded-full flex items-center justify-center text-indigo-400">in</div>
+                                <a href="https://www.linkedin.com/in/aman-rai-747a31260" target="_blank" rel="noopener noreferrer" class="text-white hover:text-indigo-400 transition break-all">linkedin.com/in/aman-rai-747a31260</a>
+                            </div>
+                        </div>
+                    </div>
+                    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4">
+                        <input type="hidden" name="form-name" value="contact">
+                        <p class="hidden"><label>Leave this empty: <input name="bot-field"></label></p>
+                        <input type="text" name="name" required placeholder="Full Name" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-indigo-500 outline-none transition">
+                        <input type="email" name="email" required placeholder="Email Address" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-indigo-500 outline-none transition">
+                        <textarea name="message" rows="4" required placeholder="Your Message" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-indigo-500 outline-none transition"></textarea>
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-2xl transition shadow-xl shadow-indigo-600/20">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t border-white/5 text-center">
+        <div class="text-2xl font-extrabold text-white mb-4 tracking-tighter uppercase">Aman<span class="text-indigo-500"> Rai.</span></div>
+        <p class="text-slate-500 text-sm">© 2026 Aman Rai. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+    </script>
+</body>
+</html>
