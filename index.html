@@ -72,6 +72,28 @@
             border-color: rgba(99, 102, 241, 0.5);
             box-shadow: 0 20px 40px rgba(79, 70, 229, 0.12);
         }
+        .skill-card {
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+        .skill-card::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(99, 102, 241, 0.35), transparent 35%);
+            opacity: 0;
+            transition: opacity 0.25s ease;
+            pointer-events: none;
+        }
+        .skill-card:hover::before {
+            opacity: 1;
+        }
+        .skill-card:hover {
+            border-color: rgba(99, 102, 241, 0.55);
+            box-shadow: 0 25px 45px rgba(79, 70, 229, 0.18);
+        }
         @media (max-width: 767px) {
             .mobile-menu a {
                 font-size: 0.95rem;
@@ -150,7 +172,7 @@
             <p class="text-slate-400 text-center mb-16 max-w-2xl mx-auto">The languages, frameworks, and tools I use to learn, build, and experiment.</p>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glass soft-card p-8 rounded-3xl" data-aos="fade-up">
+                <div class="glass skill-card soft-card p-8 rounded-3xl" data-aos="fade-up">
                     <div class="w-12 h-12 bg-indigo-500/20 rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </div>
@@ -166,7 +188,7 @@
                     </div>
                 </div>
 
-                <div class="glass soft-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass skill-card soft-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7v10m16-10v10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </div>
@@ -182,7 +204,7 @@
                     </div>
                 </div>
 
-                <div class="glass soft-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass skill-card soft-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </div>
@@ -197,7 +219,7 @@
                     </div>
                 </div>
 
-                <div class="glass soft-card p-8 rounded-3xl" data-aos="fade-up">
+                <div class="glass skill-card soft-card p-8 rounded-3xl" data-aos="fade-up">
                     <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 3v2m0 14v2m9-9h-2M5 12H3m13.657 6.657l-1.414-1.414M7.757 7.757L6.343 6.343m11.314 0l-1.414 1.414M7.757 16.243l-1.414 1.414" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </div>
@@ -212,7 +234,7 @@
                     </div>
                 </div>
 
-                <div class="glass soft-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass skill-card soft-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-6a2 2 0 00-2-2H7M9 7h6m-6 4h6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </div>
@@ -226,7 +248,7 @@
                     </div>
                 </div>
 
-                <div class="glass soft-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass skill-card soft-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-12 h-12 bg-sky-500/20 rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15zm1 0h12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </div>
@@ -313,6 +335,27 @@
         AOS.init({
             duration: 1000,
             once: true,
+        });
+
+        document.querySelectorAll('.skill-card').forEach((card) => {
+            card.addEventListener('pointermove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const rotateY = ((x / rect.width) - 0.5) * 10;
+                const rotateX = (0.5 - (y / rect.height)) * 10;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
+            });
+
+            card.addEventListener('pointerleave', () => {
+                card.style.transform = '';
+                card.style.setProperty('--x', '50%');
+                card.style.setProperty('--y', '50%');
+            });
         });
     </script>
 </body>
