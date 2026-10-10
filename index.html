@@ -13,18 +13,72 @@
 
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .text-gradient { background: linear-gradient(to right, #4f46e5, #9333ea, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .bg-photo { background-image: url('/.netlify/images?url=/images/background.jpg&w=1920&q=75'); background-size: cover; background-position: center; }
-        @media (min-width: 1921px) { .bg-photo { background-image: url('/.netlify/images?url=/images/background.jpg&w=3840&q=75'); } }
-        .bg-mesh { background-color: #0f172a; background-image: radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.15) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.15) 0px, transparent 50%), radial-gradient(at 50% 0%, rgba(14, 165, 233, 0.1) 0px, transparent 50%); }
-        .project-card { transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
-        .project-card:hover { transform: translateY(-8px); border-color: rgba(129, 140, 248, 0.5); box-shadow: 0 20px 45px rgba(79,70,229,0.18); }
-        .stat-number { font-variant-numeric: tabular-nums; }
-        .skill-progress { height: 10px; border-radius: 9999px; overflow: hidden; background: rgba(255,255,255,0.06); }
-        .skill-progress > div { height: 100%; border-radius: 9999px; background: linear-gradient(90deg, #4f46e5, #8b5cf6, #ec4899); }
-        .soft-shadow { box-shadow: 0 0 40px rgba(79,70,229,0.12); }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #020817;
+        }
+        .glass {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #4f46e5, #9333ea, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-photo {
+            background-image: url('/.netlify/images?url=/images/background.jpg&w=1920&q=75');
+            background-size: cover;
+            background-position: center;
+            filter: saturate(0.9) brightness(0.75);
+        }
+        @media (min-width: 1921px) {
+            .bg-photo { background-image: url('/.netlify/images?url=/images/background.jpg&w=3840&q=75'); }
+        }
+        .bg-mesh {
+            background-color: #020817;
+            background-image: radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.18) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.14) 0px, transparent 48%);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #6366f1, #a855f7);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.3s ease;
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+        }
+        .section-title {
+            letter-spacing: -0.04em;
+        }
+        .soft-card {
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .soft-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.12);
+        }
+        @media (max-width: 767px) {
+            .mobile-menu a {
+                font-size: 0.95rem;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+            }
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-200 antialiased overflow-x-hidden">
@@ -34,96 +88,71 @@
         <div class="absolute inset-0 bg-mesh opacity-80"></div>
     </div>
 
-    <nav x-data="{ open: false }" class="fixed w-full z-50 transition-all duration-300 glass py-4">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <a href="#about" class="text-2xl font-extrabold tracking-tighter text-white">AMAN<span class="text-indigo-500"> RAI.</span></a>
+    <nav x-data="{ open: false }" class="fixed w-full z-50 transition-all duration-300">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mt-4 glass rounded-full px-5 py-3 flex items-center justify-between">
+                <a href="#" class="text-xl sm:text-2xl font-extrabold tracking-tighter text-white">AMAN<span class="text-indigo-500"> RAI.</span></a>
 
-            <div class="hidden md:flex space-x-8 font-medium text-xs uppercase tracking-[0.2em] items-center">
-                <a href="#about" class="hover:text-indigo-400 transition">About</a>
-                <a href="#skills" class="hover:text-indigo-400 transition">Technologies</a>
-                <a href="#education" class="hover:text-indigo-400 transition">Education</a>
-                <a href="#contact" class="px-5 py-2 bg-indigo-600 rounded-full hover:bg-indigo-500 transition shadow-lg shadow-indigo-500/20 text-white">Let's Talk</a>
+                <div class="hidden md:flex space-x-8 lg:space-x-10 font-medium text-[11px] uppercase tracking-[0.2em] items-center">
+                    <a href="#about" class="nav-link hover:text-indigo-400 transition">About</a>
+                    <a href="#skills" class="nav-link hover:text-indigo-400 transition">Technologies</a>
+                    <a href="#education" class="nav-link hover:text-indigo-400 transition">Education</a>
+                    <a href="#contact" class="px-5 py-2.5 bg-indigo-600 rounded-full hover:bg-indigo-500 transition shadow-lg shadow-indigo-500/20 text-white">Let's Talk</a>
+                </div>
+
+                <button @click="open = !open" class="md:hidden text-white" aria-label="Toggle menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
             </div>
-
-            <button @click="open = !open" class="md:hidden text-white" aria-label="Toggle menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
         </div>
 
-        <div x-show="open" @click="open = false" class="md:hidden glass mt-4 p-6 space-y-4 text-center">
-            <a href="#about" class="block">About</a>
-            <a href="#skills" class="block">Technologies</a>
-            <a href="#education" class="block">Education</a>
-            <a href="#contact" class="block text-indigo-400">Contact</a>
+        <div x-show="open" x-transition class="md:hidden mx-auto max-w-7xl px-4 sm:px-6 mt-3">
+            <div @click="open = false" class="mobile-menu glass rounded-2xl p-5 space-y-4 text-center">
+                <a href="#about" class="block hover:text-indigo-400 transition">About</a>
+                <a href="#skills" class="block hover:text-indigo-400 transition">Technologies</a>
+                <a href="#education" class="block hover:text-indigo-400 transition">Education</a>
+                <a href="#contact" class="block text-indigo-400">Contact</a>
+            </div>
         </div>
     </nav>
 
-    <section id="about" class="min-h-screen flex items-center pt-24">
+    <section id="about" class="min-h-screen flex items-center pt-28 sm:pt-32">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-right">
-                <span class="inline-block py-1 px-3 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold mb-6 border border-indigo-500/20">OPEN TO INTERNSHIPS &amp; FRESHER ROLES</span>
+                <span class="inline-block py-1.5 px-3 rounded-full bg-indigo-500/10 text-indigo-400 text-[11px] font-bold mb-6 border border-indigo-500/20 tracking-[0.2em] uppercase">Open to internships & fresher roles</span>
                 <p class="text-2xl md:text-3xl font-semibold text-slate-300 mb-4">Hi, I'm <span class="text-white font-extrabold">Aman Rai</span> 👋</p>
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-tight mb-6">
+                <h1 class="section-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[0.9] mb-6">
                     Crafting <span class="text-gradient">Digital</span> Experiences.
                 </h1>
-                <p class="text-lg md:text-xl text-slate-400 mb-8 leading-relaxed max-w-xl">
-                    I'm Aman Rai, an MCA student at SRMU Lucknow who loves turning ideas into interactive digital experiences. I blend logic, design, and creativity to build beautiful, meaningful products.
+                <p class="text-lg md:text-xl text-slate-400 mb-10 leading-relaxed max-w-xl">
+                    I’m Aman Rai, an MCA student at SRMU Lucknow who loves turning ideas into interactive digital experiences. I believe code isn’t just logic — it’s creativity in motion. Currently focused on learning, building, and creating meaningful digital work.
                 </p>
-
-                <div class="flex flex-wrap gap-4 mb-8">
-                    <a href="#skills" class="px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-indigo-500 hover:text-white transition-all duration-300">My Skills</a>
-                    <a href="mailto:amanraibhmihar336@gmail.com?subject=Resume%20Request" class="px-8 py-4 border border-slate-700 rounded-xl font-bold hover:bg-slate-800 transition">Get Resume</a>
-                </div>
-
-                <div class="flex flex-wrap gap-3 text-sm text-slate-300">
-                    <span class="px-3 py-2 rounded-full bg-white/5 border border-white/10">Web Development</span>
-                    <span class="px-3 py-2 rounded-full bg-white/5 border border-white/10">AI Explorer</span>
-                    <span class="px-3 py-2 rounded-full bg-white/5 border border-white/10">UI/UX Thinking</span>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#skills" class="px-7 py-3.5 bg-white text-black font-bold rounded-xl hover:bg-indigo-500 hover:text-white transition-all duration-300 shadow-lg shadow-white/10">My Skills</a>
+                    <a href="#contact" class="px-7 py-3.5 border border-slate-700 rounded-xl font-bold hover:bg-slate-800 transition">Contact Me</a>
                 </div>
             </div>
 
             <div class="relative" data-aos="zoom-in">
-                <div class="absolute -top-20 -left-20 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-12 right-0 w-52 h-52 bg-indigo-500/20 rounded-full blur-3xl"></div>
-                <div class="glass p-4 rounded-[2rem] soft-shadow relative">
-                    <img src="profile-circle.png" alt="Aman Rai" class="w-full aspect-square object-cover rounded-[1.5rem] shadow-3xl">
-                    <div class="absolute -bottom-5 left-5 glass rounded-2xl px-4 py-3 shadow-xl">
-                        <p class="text-xs uppercase tracking-[0.2em] text-slate-400">Available</p>
-                        <p class="text-lg font-bold text-white">For Internships</p>
-                    </div>
+                <div class="absolute -top-20 -left-16 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl"></div>
+                <div class="glass p-4 rounded-full transition-transform duration-500">
+                    <img src="profile-circle.png" alt="Aman Rai" class="w-full aspect-square object-cover rounded-full shadow-3xl">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-12">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="glass rounded-3xl p-6 text-center" data-aos="fade-up">
-                    <p class="stat-number text-4xl font-extrabold text-white" data-target="4">0</p>
-                    <p class="text-slate-400 mt-2">Core Tech Stacks</p>
-                </div>
-                <div class="glass rounded-3xl p-6 text-center" data-aos="fade-up" data-aos-delay="100">
-                    <p class="stat-number text-4xl font-extrabold text-white" data-target="8">0</p>
-                    <p class="text-slate-400 mt-2">Hands-on Tools</p>
-                </div>
-                <div class="glass rounded-3xl p-6 text-center" data-aos="fade-up" data-aos-delay="200">
-                    <p class="stat-number text-4xl font-extrabold text-white" data-target="100">0</p>
-                    <p class="text-slate-400 mt-2">% Curious &amp; Driven</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="py-32">
+    <section id="skills" class="py-28 md:py-32">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-4 text-center">Technologies <span class="text-gradient">I Work With</span></h2>
+            <h2 class="section-title text-4xl md:text-5xl font-bold mb-4 text-center">Technologies <span class="text-gradient">I Work With</span></h2>
             <p class="text-slate-400 text-center mb-16 max-w-2xl mx-auto">The languages, frameworks, and tools I use to learn, build, and experiment.</p>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                <div class="glass p-8 rounded-3xl project-card" data-aos="fade-up">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass soft-card p-8 rounded-3xl" data-aos="fade-up">
                     <div class="w-12 h-12 bg-indigo-500/20 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Frontend Development</h3>
                     <p class="text-slate-400 text-sm mb-6">Building responsive, interactive user interfaces.</p>
@@ -137,11 +166,11 @@
                     </div>
                 </div>
 
-                <div class="glass p-8 rounded-3xl project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass soft-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7a2 2 0 002-2h12a2 2 0 012 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7v10m16-10v10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Backend &amp; Databases</h3>
+                    <h3 class="text-xl font-bold mb-3">Backend & Databases</h3>
                     <p class="text-slate-400 text-sm mb-6">Server-side logic and storing data reliably.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Node.js</span>
@@ -153,9 +182,9 @@
                     </div>
                 </div>
 
-                <div class="glass p-8 rounded-3xl project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass soft-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Programming Languages</h3>
                     <p class="text-slate-400 text-sm mb-6">Core languages from my BCA and MCA coursework.</p>
@@ -168,11 +197,11 @@
                     </div>
                 </div>
 
-                <div class="glass p-8 rounded-3xl project-card" data-aos="fade-up">
+                <div class="glass soft-card p-8 rounded-3xl" data-aos="fade-up">
                     <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 3v18m9-9h-18M5.636 5.636l12.728 12.728M18.364 5.636L5.636 18.364" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 3v2m0 14v2m9-9h-2M5 12H3m13.657 6.657l-1.414-1.414M7.757 7.757L6.343 6.343m11.314 0l-1.414 1.414M7.757 16.243l-1.414 1.414" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">AI &amp; Data</h3>
+                    <h3 class="text-xl font-bold mb-3">AI & Data</h3>
                     <p class="text-slate-400 text-sm mb-6">Exploring how AI can make products smarter.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Python</span>
@@ -183,9 +212,9 @@
                     </div>
                 </div>
 
-                <div class="glass p-8 rounded-3xl project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass soft-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2V7a2 2 0 00-2-2H7m6 14v-4h4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-6a2 2 0 00-2-2H7M9 7h6m-6 4h6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </div>
                     <h3 class="text-xl font-bold mb-3">UI/UX Design</h3>
                     <p class="text-slate-400 text-sm mb-6">Designing clean layouts before writing code.</p>
@@ -197,11 +226,11 @@
                     </div>
                 </div>
 
-                <div class="glass p-8 rounded-3xl project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass soft-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-12 h-12 bg-sky-500/20 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15zm1 0h12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Tools &amp; Platforms</h3>
+                    <h3 class="text-xl font-bold mb-3">Tools & Platforms</h3>
                     <p class="text-slate-400 text-sm mb-6">The everyday toolkit for building and shipping.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Git</span>
@@ -212,74 +241,29 @@
                     </div>
                 </div>
             </div>
-
-            <div class="glass rounded-[2rem] p-8 md:p-10" data-aos="fade-up">
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold text-white mb-2">Skill Strength</h3>
-                    <p class="text-slate-400">Continuously improving through projects, learning, and experimentation.</p>
-                </div>
-
-                <div class="space-y-6">
-                    <div>
-                        <div class="flex justify-between mb-2 text-sm text-slate-300">
-                            <span>HTML / CSS</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-progress"><div style="width: 90%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-2 text-sm text-slate-300">
-                            <span>JavaScript</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-progress"><div style="width: 85%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-2 text-sm text-slate-300">
-                            <span>React / Tailwind</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-progress"><div style="width: 75%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-2 text-sm text-slate-300">
-                            <span>Python / AI</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-progress"><div style="width: 80%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-2 text-sm text-slate-300">
-                            <span>UI / UX Design</span>
-                            <span>82%</span>
-                        </div>
-                        <div class="skill-progress"><div style="width: 82%"></div></div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <section id="education" class="py-32">
+    <section id="education" class="py-28 md:py-32">
         <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-16 text-center">Education <span class="text-indigo-500">Timeline</span></h2>
+            <h2 class="section-title text-4xl md:text-5xl font-bold mb-16 text-center">Education <span class="text-indigo-500">Timeline</span></h2>
             <div class="space-y-12 relative before:absolute before:left-0 before:h-full before:w-px before:bg-slate-800">
                 <div class="pl-10 relative" data-aos="fade-left">
                     <div class="absolute left-[-5px] top-1 w-2.5 h-2.5 rounded-full bg-indigo-500 shadow-[0_0_10px_#6366f1]"></div>
-                    <span class="text-indigo-400 font-bold text-sm">PURSUING</span>
+                    <span class="text-indigo-400 font-bold text-sm tracking-[0.2em] uppercase">Pursuing</span>
                     <h3 class="text-xl font-bold text-white mt-1">Master of Computer Applications (MCA)</h3>
                     <p class="text-slate-300 mt-1">Shri Ramswaroop Memorial University (SRMU), Lucknow</p>
                     <p class="text-slate-400 mt-2">Deepening my knowledge of software development, web technologies, and AI while building hands-on projects.</p>
                 </div>
                 <div class="pl-10 relative" data-aos="fade-left">
                     <div class="absolute left-[-5px] top-1 w-2.5 h-2.5 rounded-full bg-slate-700"></div>
-                    <span class="text-slate-500 font-bold text-sm">COMPLETED</span>
+                    <span class="text-slate-500 font-bold text-sm tracking-[0.2em] uppercase">Completed</span>
                     <h3 class="text-xl font-bold text-white mt-1">Bachelor of Computer Applications (BCA)</h3>
                     <p class="text-slate-400 mt-2">Built a strong foundation in programming, data structures, databases, and web development.</p>
                 </div>
                 <div class="pl-10 relative" data-aos="fade-left">
                     <div class="absolute left-[-5px] top-1 w-2.5 h-2.5 rounded-full bg-slate-700"></div>
-                    <span class="text-slate-500 font-bold text-sm">NEXT STEP</span>
+                    <span class="text-slate-500 font-bold text-sm tracking-[0.2em] uppercase">Next step</span>
                     <h3 class="text-xl font-bold text-white mt-1">Looking for my first opportunity</h3>
                     <p class="text-slate-400 mt-2">Open to internships and fresher roles in web development, AI, and UI/UX where I can learn and contribute.</p>
                 </div>
@@ -287,16 +271,15 @@
         </div>
     </section>
 
-    <section id="contact" class="py-32">
+    <section id="contact" class="py-28 md:py-32">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="glass rounded-[3rem] p-12 md:p-20 relative overflow-hidden">
+            <div class="glass rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 relative overflow-hidden">
                 <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-indigo-600/20 rounded-full blur-3xl"></div>
                 <div class="grid md:grid-cols-2 gap-12">
                     <div>
-                        <h2 class="text-5xl font-extrabold text-white mb-6">Let's build something <span class="text-gradient">epic.</span></h2>
-                        <p class="text-slate-400 text-lg mb-8">I'm a fresher open to internships, entry-level roles, and collaborations. Feel free to reach out!</p>
-
-                        <div class="space-y-4 mb-8">
+                        <h2 class="section-title text-4xl md:text-5xl font-extrabold text-white mb-6">Let's build something <span class="text-gradient">epic.</span></h2>
+                        <p class="text-slate-400 text-lg mb-8">I’m a fresher open to internships, entry-level roles, and collaborations. Feel free to reach out!</p>
+                        <div class="space-y-4">
                             <div class="flex items-center space-x-4">
                                 <div class="w-10 h-10 bg-indigo-500/10 rounded-full flex items-center justify-center text-indigo-400">@</div>
                                 <a href="mailto:amanraibhmihar336@gmail.com" class="text-white hover:text-indigo-400 transition break-all">amanraibhmihar336@gmail.com</a>
@@ -305,25 +288,15 @@
                                 <div class="w-10 h-10 bg-indigo-500/10 rounded-full flex items-center justify-center text-indigo-400">in</div>
                                 <a href="https://www.linkedin.com/in/aman-rai-747a31260" target="_blank" rel="noopener noreferrer" class="text-white hover:text-indigo-400 transition break-all">linkedin.com/in/aman-rai-747a31260</a>
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="w-10 h-10 bg-indigo-500/10 rounded-full flex items-center justify-center text-indigo-400">gh</div>
-                                <a href="https://github.com/Aman-Rai50" target="_blank" rel="noopener noreferrer" class="text-white hover:text-indigo-400 transition break-all">github.com/Aman-Rai50</a>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Open to internships</span>
-                            <span class="px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Fresher roles</span>
-                            <span class="px-3 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">Remote-friendly</span>
                         </div>
                     </div>
 
                     <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4">
                         <input type="hidden" name="form-name" value="contact">
                         <p class="hidden"><label>Leave this empty: <input name="bot-field"></label></p>
-                        <input type="text" name="name" required placeholder="Full Name" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-indigo-500 outline-none text-white placeholder:text-slate-500">
-                        <input type="email" name="email" required placeholder="Email Address" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-indigo-500 outline-none text-white placeholder:text-slate-500">
-                        <textarea name="message" rows="4" required placeholder="Your Message" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-indigo-500 outline-none text-white placeholder:text-slate-500"></textarea>
+                        <input type="text" name="name" required placeholder="Full Name" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-indigo-500 outline-none transition placeholder:text-slate-500 text-white">
+                        <input type="email" name="email" required placeholder="Email Address" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-indigo-500 outline-none transition placeholder:text-slate-500 text-white">
+                        <textarea name="message" rows="4" required placeholder="Your Message" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-indigo-500 outline-none transition placeholder:text-slate-500 text-white resize-none"></textarea>
                         <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-2xl transition shadow-xl shadow-indigo-600/20">Send Message</button>
                     </form>
                 </div>
@@ -333,31 +306,14 @@
 
     <footer class="py-12 border-t border-white/5 text-center">
         <div class="text-2xl font-extrabold text-white mb-4 tracking-tighter uppercase">Aman<span class="text-indigo-500"> Rai.</span></div>
-        <p class="text-slate-500 text-sm">© <span id="year"></span> Aman Rai. All Rights Reserved.</p>
+        <p class="text-slate-500 text-sm">© 2026 Aman Rai. All Rights Reserved.</p>
     </footer>
 
     <script>
-        AOS.init({ duration: 1000, once: true });
-
-        const counters = document.querySelectorAll('.stat-number');
-        counters.forEach((counter) => {
-            const target = Number(counter.dataset.target);
-            let count = 0;
-            const duration = 1000;
-            const stepTime = Math.max(20, Math.floor(duration / target));
-
-            const updateCounter = () => {
-                count += 1;
-                counter.textContent = count;
-                if (count < target) {
-                    setTimeout(updateCounter, stepTime);
-                }
-            };
-
-            setTimeout(updateCounter, 200);
+        AOS.init({
+            duration: 1000,
+            once: true,
         });
-
-        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
