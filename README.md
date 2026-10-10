@@ -45,8 +45,11 @@ This portfolio highlights my journey as a developer — featuring selected proje
 
 🤝 Connect with Me
 Email: amanraibhumihar336@gmail.com
+
 LinkedIn: linkedin.com/in/aman-rai50
+
 GitHub: github.com/aman-rai50
+
 Portfolio: https://aman-rai50.github.io/amanraiportfolio/
 ``````
                                                              Made with ❤️ by Aman Rai
