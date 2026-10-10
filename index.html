@@ -33,7 +33,7 @@
             background-image: url('background.jpg');
             background-size: cover;
             background-position: center;
-            filter: saturate(0.9) brightness(0.75);
+            background-attachment: fixed;
         }
         @media (min-width: 1921px) {
             .bg-photo { background-image: url('background.jpg'); }
@@ -116,7 +116,7 @@
 
     <div aria-hidden="true" class="fixed inset-0 -z-10 pointer-events-none">
         <div class="absolute inset-0 bg-photo"></div>
-        <div class="absolute inset-0 bg-mesh opacity-80"></div>
+        <div class="absolute inset-0 bg-mesh opacity-30"></div>
     </div>
 
     <nav x-data="{ open: false }" class="fixed w-full z-50 transition-all duration-300">
@@ -160,7 +160,7 @@
                     Crafting <span class="text-gradient">Digital</span> Experiences.
                 </h1>
                 <p class="text-lg md:text-xl text-slate-400 mb-10 leading-relaxed max-w-xl">
-                    I’m Aman Rai, an MCA student at SRMU Lucknow who loves turning ideas into interactive digital experiences. I believe code isn’t just logic — it’s creativity in motion.
+                    I'm Aman Rai, an MCA student at SRMU Lucknow who loves turning ideas into interactive digital experiences. I believe code isn't just logic — it's creativity in motion.
                 </p>
                 <div class="flex flex-wrap gap-4">
                     <a href="#skills" class="px-7 py-3.5 bg-white text-black font-bold rounded-xl hover:bg-indigo-500 hover:text-white transition-all duration-300 shadow-lg shadow-white/10">My Skills</a>
@@ -354,7 +354,7 @@
                 <div class="grid md:grid-cols-2 gap-12">
                     <div>
                         <h2 class="section-title text-4xl md:text-5xl font-extrabold text-white mb-6">Let's build something <span class="text-gradient">epic.</span></h2>
-                        <p class="text-slate-400 text-lg mb-8">I’m a fresher open to internships, entry-level roles, and collaborations. Feel free to reach out!</p>
+                        <p class="text-slate-400 text-lg mb-8">I'm a fresher open to internships, entry-level roles, and collaborations. Feel free to reach out!</p>
                         <div class="space-y-4">
                             <div class="flex items-center space-x-4">
                                 <div class="w-10 h-10 bg-indigo-500/10 rounded-full flex items-center justify-center text-indigo-400">@</div>
