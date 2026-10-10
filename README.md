@@ -40,37 +40,14 @@ This portfolio highlights my journey as a developer — featuring selected proje
 | **Deployment** | GitHub Pages |
 | **Version Control** | Git & GitHub |
 
-> _If you're using a framework (React, Vite, Astro, etc.), just swap this section to reflect it!_
 
 ---
 
-## 🖼️ Screenshots
+🤝 Connect with Me
+Email: amanraibhumihar336@gmail.com
+LinkedIn: linkedin.com/in/aman-rai50
+GitHub: github.com/aman-rai50
+Portfolio: https://aman-rai50.github.io/amanraiportfolio/
+``````
+                                                             Made with ❤️ by Aman Rai
 
-<!-- Add your screenshots here -->
-| Desktop | Mobile |
-| --- | --- |
-| ![Desktop Preview](./assets/images/desktop-preview.png) | ![Mobile Preview](./assets/images/mobile-preview.png) |
-
----
-
-## 🧑‍💻 Run Locally
-
-To run this project on your local machine:
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/aman-rai50/amanraiportfolio.git
-
-# 2. Navigate into the project directory
-cd amanraiportfolio
-
-# 3. Open with your preferred browser
-# Option A: Open index.html directly
-open index.html  # macOS
-start index.html # Windows
-xdg-open index.html # Linux
-
-# Option B: Use a live server (recommended for development)
-# VS Code: Right-click index.html → "Open with Live Server"
-# or use npx
-npx live-server
