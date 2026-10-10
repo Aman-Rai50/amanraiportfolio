@@ -40,7 +40,6 @@
 
             <div class="hidden md:flex space-x-8 font-medium text-xs uppercase tracking-[0.2em] items-center">
                 <a href="#about" class="hover:text-indigo-400 transition">About</a>
-                <a href="#projects" class="hover:text-indigo-400 transition">Projects</a>
                 <a href="#skills" class="hover:text-indigo-400 transition">Technologies</a>
                 <a href="#education" class="hover:text-indigo-400 transition">Education</a>
                 <a href="#contact" class="px-5 py-2 bg-indigo-600 rounded-full hover:bg-indigo-500 transition shadow-lg shadow-indigo-500/20 text-white">Let's Talk</a>
@@ -53,7 +52,6 @@
 
         <div x-show="open" @click="open = false" class="md:hidden glass mt-4 p-6 space-y-4 text-center">
             <a href="#about" class="block">About</a>
-            <a href="#projects" class="block">Projects</a>
             <a href="#skills" class="block">Technologies</a>
             <a href="#education" class="block">Education</a>
             <a href="#contact" class="block text-indigo-400">Contact</a>
@@ -69,11 +67,11 @@
                     Crafting <span class="text-gradient">Digital</span> Experiences.
                 </h1>
                 <p class="text-lg md:text-xl text-slate-400 mb-8 leading-relaxed max-w-xl">
-                    I’m Aman Rai, an MCA student at SRMU Lucknow who loves turning ideas into interactive digital experiences. I blend logic, design, and creativity to build beautiful, meaningful products.
+                    I'm Aman Rai, an MCA student at SRMU Lucknow who loves turning ideas into interactive digital experiences. I blend logic, design, and creativity to build beautiful, meaningful products.
                 </p>
 
                 <div class="flex flex-wrap gap-4 mb-8">
-                    <a href="#projects" class="px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-indigo-500 hover:text-white transition-all duration-300">View Projects</a>
+                    <a href="#skills" class="px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-indigo-500 hover:text-white transition-all duration-300">My Skills</a>
                     <a href="mailto:amanraibhmihar336@gmail.com?subject=Resume%20Request" class="px-8 py-4 border border-slate-700 rounded-xl font-bold hover:bg-slate-800 transition">Get Resume</a>
                 </div>
 
@@ -262,101 +260,6 @@
         </div>
     </section>
 
-    <section id="projects" class="py-32">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <p class="text-indigo-400 uppercase tracking-[0.2em] text-xs font-bold mb-4">Featured Projects</p>
-                <h2 class="text-4xl md:text-5xl font-extrabold text-white">Work that blends <span class="text-gradient">creativity and code.</span></h2>
-            </div>
-
-            <div class="grid lg:grid-cols-3 gap-8">
-                <article class="glass rounded-[2rem] overflow-hidden project-card" data-aos="fade-up">
-                    <div class="h-48 bg-gradient-to-br from-indigo-500/30 via-purple-500/20 to-slate-800 flex items-center justify-center">
-                        <span class="text-3xl font-black text-white">01</span>
-                    </div>
-                    <div class="p-7">
-                        <p class="text-indigo-400 font-semibold uppercase tracking-[0.2em] text-xs mb-3">Portfolio Website</p>
-                        <h3 class="text-2xl font-bold text-white mb-3">Personal Brand Experience</h3>
-                        <p class="text-slate-400 mb-6">A polished portfolio design built with HTML, Tailwind CSS, and AOS animations to showcase skills, projects, and personality.</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">HTML</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Tailwind</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">JS</span>
-                        </div>
-                        <a href="#about" class="inline-flex items-center text-indigo-400 font-semibold hover:text-indigo-300 transition">View Project →</a>
-                    </div>
-                </article>
-
-                <article class="glass rounded-[2rem] overflow-hidden project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="h-48 bg-gradient-to-br from-pink-500/25 via-violet-500/20 to-slate-800 flex items-center justify-center">
-                        <span class="text-3xl font-black text-white">02</span>
-                    </div>
-                    <div class="p-7">
-                        <p class="text-pink-400 font-semibold uppercase tracking-[0.2em] text-xs mb-3">AI &amp; Learning</p>
-                        <h3 class="text-2xl font-bold text-white mb-3">Smart Automation Ideas</h3>
-                        <p class="text-slate-400 mb-6">Exploring AI-powered workflows, prompt design, and data-driven ideas to understand practical product thinking and automation.</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Python</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">AI</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Prompting</span>
-                        </div>
-                        <a href="#contact" class="inline-flex items-center text-indigo-400 font-semibold hover:text-indigo-300 transition">Discuss Idea →</a>
-                    </div>
-                </article>
-
-                <article class="glass rounded-[2rem] overflow-hidden project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-48 bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-slate-800 flex items-center justify-center">
-                        <span class="text-3xl font-black text-white">03</span>
-                    </div>
-                    <div class="p-7">
-                        <p class="text-emerald-400 font-semibold uppercase tracking-[0.2em] text-xs mb-3">UI/UX Concepts</p>
-                        <h3 class="text-2xl font-bold text-white mb-3">Modern User Experience</h3>
-                        <p class="text-slate-400 mb-6">Designing elegant, user-first interfaces with responsive layouts, color systems, and intuitive interactions.</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Figma</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">UX</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300">Design</span>
-                        </div>
-                        <a href="#skills" class="inline-flex items-center text-indigo-400 font-semibold hover:text-indigo-300 transition">See Skills →</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-32">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <p class="text-indigo-400 uppercase tracking-[0.2em] text-xs font-bold mb-4">Testimonials</p>
-                <h2 class="text-4xl font-bold text-white">What people see in me</h2>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="glass rounded-[2rem] p-8" data-aos="fade-up">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-indigo-500/20 rounded-full flex items-center justify-center text-lg font-bold text-indigo-300">A</div>
-                        <div class="ml-4">
-                            <h3 class="font-bold text-white">Academic Mentor</h3>
-                            <p class="text-slate-400 text-sm">Technology &amp; Development</p>
-                        </div>
-                    </div>
-                    <p class="text-slate-300 leading-relaxed">“Aman combines creativity with a strong learning mindset. He is not only technical but also thoughtful in how he builds user experiences.”</p>
-                </div>
-
-                <div class="glass rounded-[2rem] p-8" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-pink-500/20 rounded-full flex items-center justify-center text-lg font-bold text-pink-300">S</div>
-                        <div class="ml-4">
-                            <h3 class="font-bold text-white">Project Collaborator</h3>
-                            <p class="text-slate-400 text-sm">Design &amp; Frontend</p>
-                        </div>
-                    </div>
-                    <p class="text-slate-300 leading-relaxed">“He has a clear understanding of user needs and pays attention to details that make a design feel modern, clean, and polished.”</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="education" class="py-32">
         <div class="max-w-3xl mx-auto px-6">
             <h2 class="text-4xl font-bold mb-16 text-center">Education <span class="text-indigo-500">Timeline</span></h2>
@@ -391,7 +294,7 @@
                 <div class="grid md:grid-cols-2 gap-12">
                     <div>
                         <h2 class="text-5xl font-extrabold text-white mb-6">Let's build something <span class="text-gradient">epic.</span></h2>
-                        <p class="text-slate-400 text-lg mb-8">I’m a fresher open to internships, entry-level roles, and collaborations. Feel free to reach out!</p>
+                        <p class="text-slate-400 text-lg mb-8">I'm a fresher open to internships, entry-level roles, and collaborations. Feel free to reach out!</p>
 
                         <div class="space-y-4 mb-8">
                             <div class="flex items-center space-x-4">
